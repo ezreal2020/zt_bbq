@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model run_client {
+  runId      String @id
+  clientName String
+}
+
+model run_time_series_data {
+  id           Int     @id @default(autoincrement())
+  runId        String
+  timeStamp    Float
+  parameter    String
+  processValue Float
+  unit         String
+}
